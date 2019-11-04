@@ -9,8 +9,9 @@ const userStyles = makeStyles(theme => ({
     content: {
         display: 'flex',
         flex: 1,
-        flexDirection: 'column',
         alignItems: 'center',
+        height: "100vh",
+        justifyContent: "center",
         paddingTop: "5rem",
         padding: theme.spacing(3),
     }
@@ -26,7 +27,7 @@ const Home = (props) => {
 
     return (
         <div className={classes.content} style={{ backgroundColor: "#transparent" }}>
-            <VerticalTabs />
+            <Template />
         </div>
 
     )

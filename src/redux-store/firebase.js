@@ -5,20 +5,20 @@ import "firebase/firestore"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCRPovKA1wK72puzf_ia8nDeXmS6EeQKps",
-    authDomain: "vision-board-51991.firebaseapp.com",
-    databaseURL: "https://vision-board-51991.firebaseio.com",
-    projectId: "vision-board-51991",
-    storageBucket: "vision-board-51991.appspot.com",
-    messagingSenderId: "818423804592",
-    appId: "1:818423804592:web:de12cc924cec4974ad8175",
-    measurementId: "G-6FM29G66GY"
-  };
+  apiKey: "AIzaSyAJTGwl8csVuVeG6p0WqooAGjVwfCh4l-k",
+  authDomain: "vision-board-2.firebaseapp.com",
+  databaseURL: "https://vision-board-2.firebaseio.com",
+  projectId: "vision-board-2",
+  storageBucket: "vision-board-2.appspot.com",
+  messagingSenderId: "602589051430",
+  appId: "1:602589051430:web:7e61ee45956154d41944e7",
+  measurementId: "G-P6M7ST9G7P"
+};
 
 
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-  export default firebase;
+export default firebase;
 
 
-  
+

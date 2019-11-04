@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 
 class Canvas extends Component {
-   
+
 
     componentDidMount() {
         //const canvas = this.refs.canvas

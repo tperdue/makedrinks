@@ -6,13 +6,16 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import ListItem from '@material-ui/core/ListItem';
-import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
 import AddPhoto from './../reena-compononents/Addphoto';
-import { Link } from "@reach/router";
+import { ReactComponent as TemplateIcon } from '../Assets/Template.svg';
+import { ReactComponent as TemplateIcon2 } from '../Assets/Template2.svg';
+import { ReactComponent as TemplateIcon3 } from '../Assets/Template3.svg';
+import { ReactComponent as TemplateIcon4 } from '../Assets/Template4.svg';
+import { switchTemplate } from '../redux-store/actions/template';
 import SearchDialog from './../search-components/SearchDialog';
-import ColorPicker from './../color-picker-components/ColorPicker';
 import ManageBoardsDialog from '../tim-components/ui/alerts-dialogs/ManageBoards';
 
 
@@ -21,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
     },
     drawer: {
-        backgroundColor: "#3c4245",
+
         [theme.breakpoints.up('sm')]: {
             width: drawerWidth,
             flexShrink: 0,
@@ -37,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
-        backgroundColor: "#3c4245"
+
     },
     content: {
         flexGrow: 1,
@@ -51,15 +54,34 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
+const iconStyles = makeStyles(theme => ({
+    root: {
+        color: theme.palette.primary.main,
+        height: "10vh",
 
+        backgroundColor: theme.palette.primary.main,
+        margin: "0 auto"
+    },
+    selected: {
+        border: `3px solid ${theme.palette.secondary.light}`,
+    }
+}))
 
 const ResponsiveDrawer = (props) => {
     const { container } = props;
     const classes = useStyles();
 
     const theme = useTheme();
+    const iconCss = iconStyles();
 
+    const handleSelection = (templateName) => {
+        console.log(props.currentTemplate);
+        props.switchTemplate(templateName);
+    }
 
+    const isSelected = (templateName) => {
+        return props.currentTemplate === templateName;
+    }
 
     const drawer = (
         <div>
@@ -79,9 +101,52 @@ const ResponsiveDrawer = (props) => {
             </ListItem>
 
             <Divider />
-            <ListItem>
-                <ColorPicker />
+
+            <Typography
+                variant="h6"
+                component="h2"
+
+                gutterBottom
+                color="primary"
+                align="center"
+            >
+                Select A Template
+            </Typography>
+
+            <ListItem button
+                alignItems="center"
+                onClick={() => handleSelection('template1')}>
+
+                <TemplateIcon
+                    className={`${iconCss.root} ${isSelected('template1') ? iconCss.selected : ''}`}
+
+                />
             </ListItem>
+
+            <ListItem button onClick={() => handleSelection('template2')}>
+
+                <TemplateIcon2
+                    className={`${iconCss.root} ${isSelected('template2') ? iconCss.selected : ''}`}
+
+                />
+            </ListItem>
+
+            <ListItem button onClick={() => handleSelection('template3')}>
+
+                <TemplateIcon3
+                    className={`${iconCss.root} ${isSelected('template3') ? iconCss.selected : ''}`}
+
+                />
+            </ListItem>
+
+            <ListItem button onClick={() => handleSelection('template4')}>
+
+                <TemplateIcon4
+                    className={`${iconCss.root} ${isSelected('template4') ? iconCss.selected : ''}`}
+
+                />
+            </ListItem>
+
 
         </div>
     );
@@ -132,10 +197,12 @@ const mapStateToProps = (state, ownProps) => {
 
     const { open } = state.drawer;
     const { container } = ownProps;
-    return { open, container }
+    const { template } = state;
+    return { open, container, currentTemplate: template.current }
 };
 const mapDispatchToProps = {
-    toggleDrawer
+    toggleDrawer,
+    switchTemplate
 }
 
 

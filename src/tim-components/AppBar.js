@@ -38,7 +38,7 @@ const ButtonAppBar = (props) => {
 
 
 
-        <AppBar position="fixed" className={classes.appBar} style={{backgroundColor: "#3c4245"}}>
+        <AppBar position="fixed" className={classes.appBar} >
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -51,12 +51,12 @@ const ButtonAppBar = (props) => {
                 </IconButton>
 
                 <Typography variant="h6" noWrap className={classes.title}>
-                    PicCollage
+                    Vision Board 2
                     {/* <HomeIcon /> */}
-                    </Typography>
+                </Typography>
                 <AccountLogin />
             </Toolbar>
-        </AppBar>
+        </AppBar >
 
 
 

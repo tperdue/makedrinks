@@ -6,7 +6,7 @@ import '../CSS/TemplateStyles.css';
 import html2canvas from 'html2canvas';
 import { clicked } from '../redux-store/actions/canvas';
 import ContainedButtons from './Button';
-import TextInput from '../veronica-components/TextInput';
+
 
 
 class Template extends Component {
@@ -19,7 +19,7 @@ class Template extends Component {
     }
 
     downloadHandler() {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         html2canvas(this.refs.downloadable, { useCORS: true, dpi: 200 }).then(function (canvas) {
             const data = canvas.toDataURL("image/png");
             const a = document.createElement('a');
@@ -58,9 +58,9 @@ class Template extends Component {
 
         return (
             <div>
-                <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
-                <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput />
-               
+                <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: "" }}>
+
+
                     {canvasjsx}
                 </div>
 

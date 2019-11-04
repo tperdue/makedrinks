@@ -27,8 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     outlinedPrimary: {
-        color: 'white',
-        borderColor: 'white',
+
         marginLeft: "1rem",
         width: "10rem"
 
@@ -70,12 +69,12 @@ const ManageBoardsDialog = (props) => {
 
     return (
         <>
-            <ViewQuiltIcon />
+            <ViewQuiltIcon color="primary" />
             <Button variant="outlined" color="primary" className={classes.outlinedPrimary} onClick={handleClickOpen}>
                 Manage Boards
                     </Button>
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-                <AppBar className={[classes.appBar, classes.colorPrimary].join(' ')}>
+                <AppBar className={[classes.appBar].join(' ')}>
                     <Toolbar>
                         <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
                             <CloseIcon />

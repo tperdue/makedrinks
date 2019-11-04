@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(1),
         color: "#f6f078",
-        borderColor: "#f6f078" 
+        borderColor: "white"
     },
     input: {
         display: 'none',
