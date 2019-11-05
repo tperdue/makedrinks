@@ -9,14 +9,8 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
-import AddPhoto from './../reena-compononents/Addphoto';
-import { ReactComponent as TemplateIcon } from '../Assets/Template.svg';
-import { ReactComponent as TemplateIcon2 } from '../Assets/Template2.svg';
-import { ReactComponent as TemplateIcon3 } from '../Assets/Template3.svg';
-import { ReactComponent as TemplateIcon4 } from '../Assets/Template4.svg';
-import { switchTemplate } from '../redux-store/actions/template';
 import SearchDialog from './../search-components/SearchDialog';
-import ManageBoardsDialog from '../tim-components/ui/alerts-dialogs/ManageBoards';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -89,7 +83,7 @@ const ResponsiveDrawer = (props) => {
             <Divider />
             <ListItem button key='Add Photo'>
 
-                <AddPhoto />
+
             </ListItem>
             <ListItem button key='Search Dialog' >
 
@@ -97,7 +91,7 @@ const ResponsiveDrawer = (props) => {
             </ListItem>
             <ListItem button>
 
-                <ManageBoardsDialog />
+
             </ListItem>
 
             <Divider />
@@ -113,39 +107,7 @@ const ResponsiveDrawer = (props) => {
                 Select A Template
             </Typography>
 
-            <ListItem button
-                alignItems="center"
-                onClick={() => handleSelection('template1')}>
 
-                <TemplateIcon
-                    className={`${iconCss.root} ${isSelected('template1') ? iconCss.selected : ''}`}
-
-                />
-            </ListItem>
-
-            <ListItem button onClick={() => handleSelection('template2')}>
-
-                <TemplateIcon2
-                    className={`${iconCss.root} ${isSelected('template2') ? iconCss.selected : ''}`}
-
-                />
-            </ListItem>
-
-            <ListItem button onClick={() => handleSelection('template3')}>
-
-                <TemplateIcon3
-                    className={`${iconCss.root} ${isSelected('template3') ? iconCss.selected : ''}`}
-
-                />
-            </ListItem>
-
-            <ListItem button onClick={() => handleSelection('template4')}>
-
-                <TemplateIcon4
-                    className={`${iconCss.root} ${isSelected('template4') ? iconCss.selected : ''}`}
-
-                />
-            </ListItem>
 
 
         </div>
@@ -197,12 +159,12 @@ const mapStateToProps = (state, ownProps) => {
 
     const { open } = state.drawer;
     const { container } = ownProps;
-    const { template } = state;
-    return { open, container, currentTemplate: template.current }
+
+    return { open, container }
 };
 const mapDispatchToProps = {
     toggleDrawer,
-    switchTemplate
+
 }
 
 

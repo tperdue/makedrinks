@@ -11,7 +11,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';
-import SearchPage from './tim-components/SearchPage';
 import theme from './theme';
 
 

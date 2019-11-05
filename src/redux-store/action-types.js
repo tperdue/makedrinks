@@ -50,15 +50,3 @@ export const CLOSE_ALERT = 'CLOSE_ALERT';
 
 
 
-//canvas
-
-export const SELECT_CANVAS = 'SELECT_CANVAS';
-export const BACKGROUND_COLOR = 'ACTIONS/BACKGROUND_COLOR';
-// export const PICK_COLOR_1 = 'PICK_COLOR_1';
-// export const PICK_COLOR_2 = 'PICK_COLOR_2';
-
-
-
-// templates
-
-export const SWITCH_TEMPLATE = 'SWITCH_TEMPLATE';
