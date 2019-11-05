@@ -4,6 +4,7 @@ import user from './user';
 import fullScreenDialog from './full-screen-dialog';
 import board from './board';
 import alertDialogs from './alerts-dialogs';
+import recipes from './recipes';
 
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
     fullScreenDialog,
     board,
     alertDialogs,
+    recipes
 
 })

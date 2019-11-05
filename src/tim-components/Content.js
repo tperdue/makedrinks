@@ -3,9 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const userStyles = makeStyles(theme => ({
     content: {
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
         flexGrow: 1,
-        // paddingTop: "5rem", 
-        // padding: theme.spacing(3),
+        paddingTop: theme.spacing(10),
+        // padding: 
     },
 }));
 

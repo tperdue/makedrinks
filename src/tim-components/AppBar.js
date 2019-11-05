@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
     },
     appBar: {
         marginLeft: drawerWidth,
@@ -51,10 +54,10 @@ const ButtonAppBar = (props) => {
                 </IconButton>
 
                 <Typography variant="h6" noWrap className={classes.title}>
-                    Vision Board 2
+                    Make Drinks
                     {/* <HomeIcon /> */}
                 </Typography>
-                <AccountLogin />
+
             </Toolbar>
         </AppBar>
 

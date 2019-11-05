@@ -9,7 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
-import SearchDialog from './../search-components/SearchDialog';
+
 
 
 
@@ -87,7 +87,7 @@ const ResponsiveDrawer = (props) => {
             </ListItem>
             <ListItem button key='Search Dialog' >
 
-                <SearchDialog />
+
             </ListItem>
             <ListItem button>
 
@@ -104,7 +104,7 @@ const ResponsiveDrawer = (props) => {
                 color="primary"
                 align="center"
             >
-                Select A Template
+
             </Typography>
 
 

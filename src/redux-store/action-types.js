@@ -24,12 +24,6 @@ export const CLOSE_DIALOG = 'CLOSE_DIALOG';
 
 
 
-//color picker 
-
-export const PICK_COLOR_1 = 'PICK_COLOR_1';
-export const PICK_COLOR_2 = 'PICK_COLOR_2';
-
-
 //board
 export const SAVE_BOARD = 'SAVE_BOARD';
 export const GET_USER_BOARDS = 'GET_USER_BOARDS';
@@ -47,6 +41,12 @@ export const RESET_BOARD = 'RESET_BOARD'
 
 export const UPDATE_ALERT = 'OPEN_ALERT';
 export const CLOSE_ALERT = 'CLOSE_ALERT';
+
+
+//recipes
+
+export const UPDATE_SEARCH_RESULTS = 'UPDATE_SEARCH_RESULTS';
+export const UPDATE_SEARCH_TERM = 'UPDATE_SEARCH_TERM';
 
 
 
