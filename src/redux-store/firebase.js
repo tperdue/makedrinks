@@ -5,14 +5,14 @@ import "firebase/firestore"
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAJTGwl8csVuVeG6p0WqooAGjVwfCh4l-k",
-  authDomain: "vision-board-2.firebaseapp.com",
-  databaseURL: "https://vision-board-2.firebaseio.com",
-  projectId: "vision-board-2",
-  storageBucket: "vision-board-2.appspot.com",
-  messagingSenderId: "602589051430",
-  appId: "1:602589051430:web:7e61ee45956154d41944e7",
-  measurementId: "G-P6M7ST9G7P"
+  apiKey: "AIzaSyConNVZ0uI9DuvPF5HujcYD7HZwOHAK8fw",
+  authDomain: "makedrinksapp.firebaseapp.com",
+  databaseURL: "https://makedrinksapp.firebaseio.com",
+  projectId: "makedrinksapp",
+  storageBucket: "makedrinksapp.appspot.com",
+  messagingSenderId: "901444337098",
+  appId: "1:901444337098:web:c6bdc792c1f6d00f10e333",
+  measurementId: "G-KQ60B4DF3T"
 };
 
 
