@@ -60,7 +60,7 @@ const RecipeCard = (props) => {
         )
     }
 
-    console.log(recipeInfo.thumbNail)
+
 
     return (
 

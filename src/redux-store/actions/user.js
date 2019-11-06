@@ -14,7 +14,7 @@ import {
 
 
 import firebase from '../firebase';
-import { resetBoard, clearBoard } from './board';
+
 
 import store from '../store';
 
@@ -40,8 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
     else {
 
         console.log(user)
-        store.dispatch(clearBoard());
-        store.dispatch(resetBoard());
+
 
 
 

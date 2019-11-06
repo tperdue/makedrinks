@@ -11,7 +11,11 @@ const useGridStyles = makeStyles(theme => ({
         gridColumnGap: "1rem",
         "paddingTop": "2rem",
         "paddingBottom": "2rem",
-        width: "70vw"
+        width: "70vw",
+        [theme.breakpoints.down('sm')]: {
+            gridTemplateColumns: "1fr",
+            width: "90vw"
+        }
     }
 }))
 

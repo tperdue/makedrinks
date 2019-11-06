@@ -10,7 +10,6 @@ import ResponsiveDrawer from './tim-components/ResponsiveDrawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from './tim-components/Login';
 import Content from './tim-components/Content';
-import Container from '@material-ui/core/Container';
 import Home from './tim-components/Home';
 import theme from './theme';
 
