@@ -25,7 +25,6 @@ export default (state = initialState, action) => {
 
         case UPDATE_SEARCH_RESULTS: {
             const { hits, nbPages, page, nbHits } = action.payload.searchResults;
-
             return {
                 ...state,
                 results: hits,

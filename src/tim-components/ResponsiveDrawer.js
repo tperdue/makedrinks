@@ -9,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
+import Ad from './ui/ads/amazon';
 
 
 
@@ -96,16 +97,7 @@ const ResponsiveDrawer = (props) => {
 
             <Divider />
 
-            <Typography
-                variant="h6"
-                component="h2"
-
-                gutterBottom
-                color="primary"
-                align="center"
-            >
-
-            </Typography>
+            <Ad />
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
@@ -47,9 +47,8 @@ const useButtonSytles = makeStyles(theme => ({
 const useSearchInputStyles = makeStyles(theme => ({
     root: {
         backgroundColor: 'white',
-        marginLeft: theme.spacing(6),
-        marginRight: theme.spacing(6),
-        justifySelf: "center",
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(1),
         flex: 1
     }
 }))
@@ -60,10 +59,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const CategoryFilterDialog = (props) => {
-    const { categoryFacets, addFacet, selectedFacets } = props
+    const { categoryFacets, selectedFacets } = props
     const classes = useStyles();
     const searchInputClasses = useSearchInputStyles();
     const [open, setOpen] = React.useState(false);
+    const [filterText, setFilterText] = useState('');
     const availableFacets = Object.keys(categoryFacets)
         .map(categoryKey => {
             const value = categoryFacets[categoryKey];
@@ -81,6 +81,10 @@ const CategoryFilterDialog = (props) => {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleCategoryInput = (event) => {
+        setFilterText(event.target.value);
+    }
 
     const buttonCss = useButtonSytles()
 
@@ -107,26 +111,27 @@ const CategoryFilterDialog = (props) => {
                         </Typography>
 
                         <TextField
-                            id="standard-full-width"
-                            placeholder="Enter Search Term"
+                            id="category-search"
+                            placeholder="Search for Category"
                             className={searchInputClasses.root}
                             margin="normal"
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            value={filterText}
+                            onChange={handleCategoryInput}
                         />
 
-                        <Button autoFocus
-                            color="inherit"
-                            onClick={handleClose}
-                            className={classes.closeButton}>
-                            close
-                        </Button>
+
                     </Toolbar>
                 </AppBar>
                 <List>
 
-                    {availableFacets.map(facet => {
+                    {availableFacets
+                        .filter(facet => {
+                            
+                        })
+                        .map(facet => {
                         return (
 
                             <FacetResult

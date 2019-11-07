@@ -22,7 +22,10 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "white",
         position: "sticky",
         top: theme.spacing(7),
-        "zIndex": "5"
+        "zIndex": "5",
+        [theme.breakpoints.down('sm')]: {
+            width: "90vw"
+        },
     }
 }))
 

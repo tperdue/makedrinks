@@ -34,15 +34,22 @@ const useCardStyles = makeStyles(theme => ({
     root: {
         marginBottom: "1rem",
 
-
-
     },
 
+    body2: {
+        display: "flex",
 
+    }
+}))
 
-
-
-
+const useCardContentStyles = makeStyles(theme => ({
+    root: {
+        padding: "0"
+    },
+    inside: {
+        marginRight: "1rem",
+        marginLeft: "1rem"
+    }
 }))
 
 
@@ -50,6 +57,7 @@ const RecipeCard = (props) => {
 
     const { recipeInfo } = props;
     const cardCss = useCardStyles();
+    const cardContentCss = useCardContentStyles();
     const createAvatar = (recipeInfo) => {
         return (
             <Avatar
@@ -86,10 +94,16 @@ const RecipeCard = (props) => {
                             className={cardCss.media}
                         ></CardMedia>
 
-                        <CardContent>
-                            <span>
+                        <CardContent className={cardContentCss.root}>
+                            <span className={cardContentCss.inside}>
                                 Ingredients:
-                                <Typography variant="body2" color="textSecondary" component="p">
+                                <Typography
+                                    variant="body2"
+                                    color="textSecondary"
+                                    component="p"
+                                    className={cardCss.body2}
+
+                                >
                                     {recipeInfo.ingredients.join(',')}
                                 </Typography>
 
