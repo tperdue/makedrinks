@@ -9,10 +9,10 @@ import FilterButtons from '../../buttons/filter-buttons';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width: "70vw",
+
         padding: "1rem",
         [theme.breakpoints.down('sm')]: {
-            width: "90vw"
+
         },
 
 
@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     wrapper: {
         backgroundColor: "white",
         position: "sticky",
+        width: "70vw",
         top: theme.spacing(7),
         "zIndex": "5",
         [theme.breakpoints.down('sm')]: {

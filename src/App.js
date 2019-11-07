@@ -40,7 +40,7 @@ function App() {
         <div className={classes.root} >
 
           <AppBar />
-          <ResponsiveDrawer />
+
           <Content>
 
             <Router>

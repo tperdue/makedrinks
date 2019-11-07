@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
@@ -64,6 +64,7 @@ const CategoryFilterDialog = (props) => {
     const classes = useStyles();
     const searchInputClasses = useSearchInputStyles();
     const [open, setOpen] = React.useState(false);
+    const [filterText, setFilterText] = useState('');
     const availableFacets = Object.keys(glassTypeFacets)
         .map(glassTypeKey => {
             const value = glassTypeFacets[glassTypeKey];
@@ -81,6 +82,10 @@ const CategoryFilterDialog = (props) => {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleInput = (event) => {
+        setFilterText(event.target.value);
+    }
 
     const buttonCss = useButtonSytles()
 
@@ -114,28 +119,31 @@ const CategoryFilterDialog = (props) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            value={filterText}
+                            onChange={handleInput}
                         />
 
-                        <Button autoFocus
-                            color="inherit"
-                            onClick={handleClose}
-                            className={classes.closeButton}>
-                            close
-                        </Button>
+
                     </Toolbar>
                 </AppBar>
                 <List>
 
-                    {availableFacets.map(facet => {
-                        return (
+                    {availableFacets
+                        .filter(facet => {
+                            const subjectString = facet.name.toLowerCase();
+                            const testString = filterText.toLowerCase();
+                            return subjectString.includes(testString);
+                        })
+                        .map(facet => {
+                            return (
 
-                            <FacetResult
-                                key={facet.name}
-                                facetInfo={facet}
-                                selected={isSelected(facet.searchKey)}
-                            />
-                        )
-                    })}
+                                <FacetResult
+                                    key={facet.name}
+                                    facetInfo={facet}
+                                    selected={isSelected(facet.searchKey)}
+                                />
+                            )
+                        })}
 
 
 

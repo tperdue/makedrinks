@@ -5,17 +5,13 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ShowRecipe from '../../alerts-dialogs/show-recipe';
 import { connect } from 'react-redux';
-import './style.css'
+
 
 const useCardStyles = makeStyles(theme => ({
 
@@ -24,7 +20,6 @@ const useCardStyles = makeStyles(theme => ({
     },
     media: {
         height: "40vh",
-        width: "100%",
 
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -32,21 +27,32 @@ const useCardStyles = makeStyles(theme => ({
     },
 
     root: {
+
         marginBottom: "1rem",
+
 
     },
 
-    body2: {
+    body1: {
+
         display: "flex",
+        flexWrap: "wrap",
+        marginTop: ".5rem",
+        maxWidth: "65vw",
+        paddingLeft: "1rem"
+
+
+
 
     }
 }))
 
 const useCardContentStyles = makeStyles(theme => ({
     root: {
-        padding: "0"
+        paddingTop: ".5rem"
     },
     inside: {
+
         marginRight: "1rem",
         marginLeft: "1rem"
     }
@@ -93,23 +99,28 @@ const RecipeCard = (props) => {
                             title={recipeInfo.name}
                             className={cardCss.media}
                         ></CardMedia>
-
                         <CardContent className={cardContentCss.root}>
                             <span className={cardContentCss.inside}>
                                 Ingredients:
+
                                 <Typography
-                                    variant="body2"
+                                    variant="body1"
                                     color="textSecondary"
                                     component="p"
-                                    className={cardCss.body2}
+                                    className={cardCss.body1}
 
                                 >
                                     {recipeInfo.ingredients.join(',')}
                                 </Typography>
-
                             </span>
 
                         </CardContent>
+
+                        <CardActions disableSpacing>
+
+                            <ShowRecipe recipeInfo={recipeInfo} open={false} />
+
+                        </CardActions>
                     </Card>
                 </div>
 

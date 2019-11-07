@@ -129,18 +129,20 @@ const CategoryFilterDialog = (props) => {
 
                     {availableFacets
                         .filter(facet => {
-                            
+                            const subjectString = facet.name.toLowerCase();
+                            const testString = filterText.toLowerCase();
+                            return subjectString.includes(testString);
                         })
                         .map(facet => {
-                        return (
+                            return (
 
-                            <FacetResult
-                                key={facet.name}
-                                facetInfo={facet}
-                                selected={isSelected(facet.searchKey)}
-                            />
-                        )
-                    })}
+                                <FacetResult
+                                    key={facet.name}
+                                    facetInfo={facet}
+                                    selected={isSelected(facet.searchKey)}
+                                />
+                            )
+                        })}
 
 
 

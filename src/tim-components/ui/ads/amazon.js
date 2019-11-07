@@ -20,10 +20,10 @@ const Ad = () => {
             <iframe
                 title="amazon"
                 style={style}
-                marginwidth={0}
-                marginheight={0}
+                marginWidth={0}
+                marginHeight={0}
                 scrolling={"no"}
-                frameborder={0}
+                frameBorder={0}
                 src={src}>
             </iframe>
         </div>

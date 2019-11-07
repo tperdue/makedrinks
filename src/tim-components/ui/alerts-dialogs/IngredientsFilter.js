@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
+
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
+import { addFacet } from '../../../redux-store/actions/selected-facets'
+import TextField from '@material-ui/core/TextField';
+import FacetResult from '../data-display/facet-result';
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,8 +22,13 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         marginLeft: theme.spacing(2),
-        flex: 1,
+
     },
+
+    closeButton: {
+        justifySelf: "end",
+
+    }
 }));
 
 
@@ -30,10 +37,20 @@ const useButtonSytles = makeStyles(theme => ({
         backgroundColor: theme.palette.primary.main,
         flex: "1",
         borderRadius: 0,
-
+        borderRight: "1px solid black"
     },
     groupedTextSecondary: {
         color: 'white'
+    }
+}))
+
+const useSearchInputStyles = makeStyles(theme => ({
+    root: {
+        backgroundColor: 'white',
+        marginLeft: theme.spacing(6),
+        marginRight: theme.spacing(6),
+        justifySelf: "center",
+        flex: 1
     }
 }))
 
@@ -42,9 +59,21 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog() {
+const CategoryFilterDialog = (props) => {
+    const { ingredientFacets, selectedFacets } = props
     const classes = useStyles();
+    const searchInputClasses = useSearchInputStyles();
     const [open, setOpen] = React.useState(false);
+    const [filterText, setFilterText] = useState('');
+    const availableFacets = Object.keys(ingredientFacets)
+        .map(ingredientKey => {
+            const value = ingredientFacets[ingredientKey];
+            return {
+                name: ingredientKey,
+                searchKey: `ingredients:${ingredientKey}`,
+                value
+            }
+        })
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -54,7 +83,15 @@ export default function FullScreenDialog() {
         setOpen(false);
     };
 
+    const handleInput = (event) => {
+        setFilterText(event.target.value);
+    }
+
     const buttonCss = useButtonSytles()
+
+    const isSelected = (searchKey) => {
+        return selectedFacets.includes(searchKey);
+    }
 
     return (
         <>
@@ -71,23 +108,63 @@ export default function FullScreenDialog() {
                             <CloseIcon />
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                            Ingredients Filter
-            </Typography>
-                        <Button autoFocus color="inherit" onClick={handleClose}>
-                            close
-            </Button>
+                            Ingredient Filter
+                        </Typography>
+
+                        <TextField
+                            id="standard-full-width"
+                            placeholder="Enter Search Term"
+                            className={searchInputClasses.root}
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            value={filterText}
+                            onChange={handleInput}
+                        />
+
+
                     </Toolbar>
                 </AppBar>
                 <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania" />
-                    </ListItem>
-                    <Divider />
-                    <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-                    </ListItem>
+
+                    {availableFacets
+                        .filter(facet => {
+                            const subjectString = facet.name.toLowerCase();
+                            const testString = filterText.toLowerCase();
+                            return subjectString.includes(testString);
+                        })
+                        .map(facet => {
+                            return (
+
+                                <FacetResult
+                                    key={facet.name}
+                                    facetInfo={facet}
+                                    selected={isSelected(facet.searchKey)}
+                                />
+                            )
+                        })}
+
+
+
                 </List>
             </Dialog>
         </>
     );
 }
+
+const mapStateToProps = (state) => {
+    const { ingredients } = state.availableFacets;
+    const { selectedFacets } = state;
+
+    return {
+        ingredientFacets: ingredients,
+        selectedFacets
+    }
+}
+
+const mapDispatchToProps = {
+    addFacet
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilterDialog);
