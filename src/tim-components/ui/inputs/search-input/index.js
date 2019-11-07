@@ -4,7 +4,8 @@ import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import UpdateResultsButton from './update-results.button';
-import { search, updateSearchTerm } from '../../../../redux-store/actions/recipes'
+import { search, updateSearchTerm } from '../../../../redux-store/actions/recipes';
+import FilterButtons from '../../buttons/filter-buttons';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -13,7 +14,15 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             width: "90vw"
         },
-        position: "relative"
+
+
+    },
+
+    wrapper: {
+        backgroundColor: "white",
+        position: "sticky",
+        top: theme.spacing(7),
+        "zIndex": "5"
     }
 }))
 
@@ -35,22 +44,27 @@ const SearchInput = (props) => {
 
 
     return (
-        <Paper className={classes.root}>
-            <TextField
-                id="standard-full-width"
-                label="Search"
 
-                placeholder="Enter Search Term"
-                value={query}
-                onChange={handleInputChange}
-                fullWidth
-                margin="normal"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <UpdateResultsButton getResults={fetchNewResults} />
-        </Paper>
+        <div className={classes.wrapper}>
+            <Paper className={classes.root}>
+                <TextField
+                    id="standard-full-width"
+                    label="Search"
+
+                    placeholder="Enter Search Term"
+                    value={query}
+                    onChange={handleInputChange}
+                    fullWidth
+                    margin="normal"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+                <UpdateResultsButton getResults={fetchNewResults} />
+            </Paper>
+            <FilterButtons />
+
+        </div>
     );
 }
 
