@@ -1,6 +1,7 @@
 import {
     UPDATE_SEARCH_RESULTS,
-    UPDATE_SEARCH_TERM
+    UPDATE_SEARCH_TERM,
+    UPDATE_FACET_FILTERS
 } from '../action-types'
 
 const initialState = {
@@ -32,6 +33,27 @@ export default (state = initialState, action) => {
                 page,
                 nbHits
 
+            }
+        }
+
+        case UPDATE_SEARCH_TERM: {
+            return {
+                ...state,
+                search: {
+                    query: action.payload.searchTerm,
+                    facetFilers: state.search.facetFilers
+                }
+            }
+        }
+
+        case UPDATE_FACET_FILTERS: {
+            const { facetFilters } = action.payload;
+            return {
+                ...state,
+                search: {
+                    query: state.search.query,
+                    facetFilters
+                }
             }
         }
 
