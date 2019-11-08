@@ -39,6 +39,7 @@ const useCardStyles = makeStyles(theme => ({
         flexWrap: "wrap",
         marginTop: ".5rem",
         maxWidth: "22vw",
+        minHeight: "10vw",
         paddingLeft: "1rem",
         [theme.breakpoints.down('sm')]: {
 
