@@ -16,13 +16,13 @@ These instructions will get you a copy of the project up and running on your loc
 Clone git repo
 
 ```
-git clone git@github.com:tperdue/vision-board.git
+git clone git@github.com:tperdue/makedrinks.git
 ```
 
 Change into directory where repo was cloned.
 
 ```
-cd vision-board
+cd makedrinks
 ```
 
 Install dependencies.
@@ -57,7 +57,7 @@ npm start
 * [Material UI](https://github.com/mui-org/material-ui) - A React UI component library.
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 * [Firebase](https://github.com/firebase/firebase-js-sdk) - Used for serverless backend infrastructure.
-* [Uploadcare React Widget](https://github.com/uploadcare/react-widget) - React component used to upload and edit images
+
 
 
 
