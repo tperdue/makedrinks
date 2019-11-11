@@ -1,9 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import deepOrange from '@material-ui/core/colors/deepOrange';
+import indigo from '@material-ui/core/colors/indigo';
 
 const theme = createMuiTheme({
     palette: {
-        primary: deepOrange,
+        primary: indigo,
         secondary: {
             main: '#FFC107',
         },

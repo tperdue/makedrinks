@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { drawerWidth } from '../configs/app-constants';
 import { toggleDrawer } from '../redux-store/actions/drawer';
 import AccountLogin from './AccountLogin';
-import HomeIcon from '../reena-compononents/Logo'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
     },
     appBar: {
         marginLeft: drawerWidth,
@@ -51,12 +54,12 @@ const ButtonAppBar = (props) => {
                 </IconButton>
 
                 <Typography variant="h6" noWrap className={classes.title}>
-                    Vision Board 2
+                    Make Drinks
                     {/* <HomeIcon /> */}
                 </Typography>
-                <AccountLogin />
+
             </Toolbar>
-        </AppBar >
+        </AppBar>
 
 
 
